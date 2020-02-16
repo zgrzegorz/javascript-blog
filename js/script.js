@@ -11,6 +11,7 @@ document.getElementById("test-button").addEventListener("click", function () {
     }
 }); */
 const titleClickHandler = function (event) {
+    const clickedElement = this;
     console.log("Link został kliknięty!");
     console.log("Event:", event);
     /* 1 remove class 'active' from all article links- usunięcie klasy active ze wszystkich linków */
@@ -20,8 +21,10 @@ const titleClickHandler = function (event) {
         console.log("link z klasą active dla linków:", activeLink);
     }
 
-    /* 2 add class 'active' to the clicked link */
-
+    /* 2 add class 'active' to the clicked link- dodanie klasy active dla klikniętego linka*/
+    clickedElement.classList.add("active");
+    console.log("clickedElement:", clickedElement);
+    console.log("clickedElement with plus:" + clickedElement);
     /* 3 remove class 'active' from all articles- usunięcie klasy active ze wszystkich artykułów*/
     const activeArticles = document.querySelectorAll("article.active");
     console.log(activeArticles);
