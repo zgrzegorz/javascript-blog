@@ -11,6 +11,7 @@ document.getElementById("test-button").addEventListener("click", function () {
     }
 }); */
 const titleClickHandler = function (event) {
+    event.preventDefault();
     const clickedElement = this;
     console.log("Link został kliknięty!");
     console.log("Event:", event);
@@ -33,11 +34,15 @@ const titleClickHandler = function (event) {
         console.log("link z klasą active dla articles:", activeArticle);
     }
 
-    /* get 'href' attribute from the clicked link */
+    /* get 'href' attribute from the clicked link- pobranie atrybutu klikniętego linku */
+    const articleSelector = clickedElement.getAttribute("href");
+    console.log("Pobrany atrybut klikniętego linku:", articleSelector);
+    /* find the correct article using the selector (value of 'href' attribute)- wyszukanie właściwego artykułu*/
+    const targetArticle = document.querySelector(articleSelector);
+    console.log("Artykuł o szukanym selektorze:", targetArticle);
+    /* add class 'active' to the correct article- dodanie klasy active do znalezionego artykułu */
+    targetArticle.classList.add("active");
 
-    /* find the correct article using the selector (value of 'href' attribute) */
-
-    /* add class 'active' to the correct article */
 }
 const links = document.querySelectorAll(".titles a");
 for (let link of links) {
