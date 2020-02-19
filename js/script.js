@@ -44,6 +44,36 @@ const titleClickHandler = function (event) {
     targetArticle.classList.add("active");
 
 }
+
+const generateTitleLinks = function () {
+    /* remove contents of titleList- usunięcie listy linków w lewej kolumnie */
+    const titleList = document.querySelector(".titles");
+    titleList.innerHTML = "";
+    /* for each article- dla każdego artykułu*/
+    /* find all the articles and save them to variable: articles */
+    const articles = document.querySelectorAll("article.post");
+    console.log("Wszystkie artykuły:", articles);
+    let html = "";
+    for (let article of articles) {
+        /* get the article id- pobranie id artykułu */
+        const articleId = article.getAttribute("id");
+        console.log("Wszystkie id:", articleId);
+        /* find the title element- znalezienie tytułu */
+        const postTitle = article.querySelector(".post-title");
+        /* get the title from the title element */
+        const articleTitle = postTitle.innerHTML;
+        console.log("Wyświetl tytuł:", articleTitle);
+        /* create HTML of the link */
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        console.log("Nowy link:", linkHTML);
+        /* insert link into titleList- wstawienie linkówHTML do listy*/
+        //titleList.insertAdjacentHTML("beforeend", linkHTML);
+        html = html + linkHTML;
+        console.log("Zawartość zmiennej html:", html);
+    }
+    titleList.innerHTML = html;
+}
+generateTitleLinks();
 const links = document.querySelectorAll(".titles a");
 for (let link of links) {
     link.addEventListener("click", titleClickHandler);
