@@ -58,7 +58,7 @@ function generateTitleLinks(customSelector = '') {
   /* find all the articles and save them to variable: articles */
   const articles = document.querySelectorAll(optArticleSelector + customSelector);
   console.log('Wartość selectora:', optArticleSelector + customSelector);
-  console.log('Wszystkie artykuły z selectorem .post i atrybutem data-tags:', articles);
+  console.log('Wszystkie artykuły z selectorem .post i atrybutem data-tags:', articles); //dlaczego w console.log nie wyświetla wszystkich artykułów z podanym selectorem? Lista jest pusta
   let html = '';
   for (let article of articles) {
     /* get the article id- pobranie id artykułu */
