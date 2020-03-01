@@ -91,6 +91,23 @@ body {
   }
 }
 
+.list.tags{
+  li{
+    a.tag-size-1{
+      color:green;
+      font-size: 14px;
+    }
+    a.tag-size-3{
+      color:red;
+      font-size: 16px;
+    }
+    a.tag-size-5{
+      color:blue;
+      font-size: 20px;
+    }
+  }
+}
+
 /* Authors */
 
 .authors {
